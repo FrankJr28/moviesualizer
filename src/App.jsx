@@ -33,8 +33,9 @@ function useSearch(){
 }
 
 function App() {
-  const { movies } = useMovies();
+  
   const { search, updateSearch, error } = useSearch()
+  const { movies, getMovies } = useMovies(search);
 
   const handleSubmit = (event)=>{
     /*event.preventDefault()
@@ -44,7 +45,10 @@ function App() {
     console.log("hola");
     console.log(query.query)*/
     event.preventDefault()
+    console.log("jello")
+    console.log(search)
     //console.log({query})
+    getMovies()
   }
 
   const handleChange = (event) =>{
